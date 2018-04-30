@@ -2,13 +2,13 @@
 ext {
   javaVersion = "1.8"
   agpVersion = rootProject.hasProperty("agpVersion") ? rootProject.property("agpVersion") : "3.0.1"
-  kotlinVersion = "1.2.30"
+  kotlinVersion = "1.2.41"
   minSdkVersion = 19
   targetSdkVersion = 27
   compileSdkVersion = 27
   buildToolsVersion = "27.0.3"
   spoonVersion = "2.0.0-SNAPSHOT"
-  jacocoVersion = "0.7.4.201502262128"
+  jacocoVersion = "0.8.1"
 }
 
 // Dependencies
@@ -18,10 +18,10 @@ ext.deps = [
   "kotlinGradlePlugin": "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion",
 
   // implementation
-  "kotlinStdlib"      : "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlinVersion",
+  "kotlinStdlib"      : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion",
   "kotlinReflect"     : "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion",
   "spoonRunner"       : "com.squareup.spoon:spoon-runner:$spoonVersion",
-  "ddmlib"            : "com.android.tools.ddms:ddmlib:26.0.0",
+  "ddmlib"            : "com.android.tools.ddms:ddmlib:26.0.1",
 
   // testImplementation
   "junit"             : "junit:junit:4.12",

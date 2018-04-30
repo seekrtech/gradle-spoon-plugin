@@ -4,7 +4,7 @@ plugins {
   id "com.jfrog.bintray" version "1.8.0"
   id "com.github.ben-manes.versions" version "0.17.0"
   id "com.gradle.plugin-publish" version "0.9.10"
-  id "org.jetbrains.kotlin.jvm" version "1.2.30"
+  id "org.jetbrains.kotlin.jvm" version "1.2.41"
   id "org.jetbrains.dokka" version "0.9.16"
   id "java-gradle-plugin"
   id "groovy"
@@ -46,8 +46,11 @@ dependencies {
   implementation deps.kotlinStdlib
   implementation deps.kotlinReflect
   implementation deps.gradle
-  implementation deps.spoonRunner
   implementation deps.ddmlib
+  implementation (deps.spoonRunner) {
+    exclude module: 'kotlin-stdlib-jre7'
+    exclude module: 'kotlin-stdlib-jre8'
+  }
 
   testImplementation localGroovy()
   testImplementation deps.spockCore, { exclude module: "groovy-all" } // Use localGroovy()
