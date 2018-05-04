@@ -1,68 +1,36 @@
 # Gradle Spoon Plugin
 
 [![License](https://img.shields.io/badge/license-apache%202.0-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0)
-[![Build Status](https://travis-ci.org/jaredsburrows/gradle-spoon-plugin.svg?branch=master)](https://travis-ci.org/jaredsburrows/gradle-spoon-plugin)
-[![Twitter Follow](https://img.shields.io/twitter/follow/jaredsburrows.svg?style=social)](https://twitter.com/jaredsburrows)
+[![Build Status](https://travis-ci.org/JDFind/gradle-spoon-plugin.svg?branch=master)](https://travis-ci.org/JDFind/gradle-spoon-plugin)
 
-Gradle plugin for [Spoon](https://github.com/square/spoon) 2+ and [Android Gradle Plugin](https://developer.android.com/studio/releases/gradle-plugin.html) 3+.
+Gradle plugin for a [custom Spoon](https://github.com/JDFind/spoon) 2+ and [Android Gradle Plugin](https://developer.android.com/studio/releases/gradle-plugin.html) 3+.
+
+This project is based on https://github.com/jaredsburrows/gradle-spoon-plugin
 
 ## Download
 
-**Release:**
+Release versions are available in the JFrog Bintray repository: https://bintray.com/jdfind/maven/gradle-spoon-plugin
+
 ```groovy
 buildscript {
   repositories {
     jcenter()
-    maven { url "https://oss.sonatype.org/content/repositories/snapshots" } // For Spoon snapshot, until 2.0.0 is released
+    // for Spoon snapshot, until 2.0.0 is released
+    maven { url 'https://oss.jfrog.org/artifactory/oss-snapshot-local' }
   }
 
   dependencies {
-    classpath "com.jaredsburrows:gradle-spoon-plugin:1.4.0"
+    classpath "com.jdfind:gradle-spoon-plugin:1.4.0"
   }
-}
-
-repositories {
-  maven { url "https://oss.sonatype.org/content/repositories/snapshots" } // For Spoon snapshot, until 2.0.0 is released
 }
 
 apply plugin: "com.android.application"
-apply plugin: "com.jaredsburrows.spoon"
-
-dependencies {
-  androidTestCompile "com.squareup.spoon:spoon-client:2.0.0-SNAPSHOT" // For Spoon snapshot, until 2.0.0 is released
-}
+apply plugin: "com.jdfind.spoon"
 ```
-Release versions are available in the JFrog Bintray repository: https://bintray.com/jaredsburrows/maven/gradle-spoon-plugin
-
-**Snapshot:**
-```groovy
-buildscript {
-  repositories {
-    maven { url "https://oss.jfrog.org/artifactory/oss-snapshot-local/" }
-    maven { url "https://oss.sonatype.org/content/repositories/snapshots" } // For Spoon snapshot, until 2.0.0 is released
-  }
-
-  dependencies {
-    classpath "com.jaredsburrows:gradle-spoon-plugin:1.4.1-SNAPSHOT"
-  }
-}
-
-repositories {
-  maven { url "https://oss.sonatype.org/content/repositories/snapshots" } // For Spoon snapshot, until 2.0.0 is released
-}
-
-apply plugin: "com.android.application"
-apply plugin: "com.jaredsburrows.spoon"
-
-dependencies {
-  androidTestCompile "com.squareup.spoon:spoon-client:2.0.0-SNAPSHOT" // For Spoon snapshot, until 2.0.0 is released
-}
-```
-Snapshot versions are available in the JFrog Artifactory repository: https://oss.jfrog.org/webapp/#/builds/gradle-spoon-plugin
 
 ## Tasks
 
-- **`gradlew spoon{variant}`**
+- `gradlew spoon{variant}`
 
 ## Usage
 
@@ -81,8 +49,8 @@ spoon {
   // Whether or not animations are enabled. Disable animated gif generation. (false by default)
   noAnimations = true
 
-  // Set ADB timeout. (minutes) (default is 10 mins)
-  adbTimeout = 5
+  // Set ADB timeout. (seconds) (default is 10 mins)
+  adbTimeout = 300
 
   // Add device serials for test execution
   devices = ["emulator-5554", "emulator-5556"]
@@ -95,6 +63,9 @@ spoon {
 
   // Test class name to run (fully-qualified).
   className = "com.android.foo.FooClassName"
+
+  // Test method name to run (must also use className)
+  methodName = "testMethodName"
   
   // Run annotated tests - small, medium, large
   testSize = "large"
@@ -108,9 +79,6 @@ spoon {
   // Grant all runtime permissions during installation on Marshmallow and above devices. (false by default)
   grantAll = true
 
-  // Test method name to run (must also use className)
-  methodName = "testMethodName"
-
   // Code coverage flag. For Spoon to calculate coverage file your app must have the `WRITE_EXTERNAL_STORAGE` permission. (false by default)
   codeCoverage = true
 
@@ -123,8 +91,11 @@ spoon {
   // The shardIndex option to specify which shard to run.
   shardIndex = 2
   
-  // Run tests in separate instrumentation calls.
+  // Run tests in separate instrumentation calls. (false by default)
   singleInstrumentationCall = true
+
+  // Run each test class in a different instrumentation instance. (false by default)
+  classLevelInstrumentation = true
 
   // Do not fail build if a test fails, let all the tests run and finish. (false by default)
   ignoreFailures = true
@@ -134,6 +105,7 @@ spoon {
 ## License
 
     Copyright (C) 2015 Jared Burrows
+    Copyright (C) 2018 JDFind
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
