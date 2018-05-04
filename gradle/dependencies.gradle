@@ -20,7 +20,7 @@ ext.deps = [
   // implementation
   "kotlinStdlib"      : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion",
   "kotlinReflect"     : "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion",
-  "spoonRunner"       : "com.squareup.spoon:spoon-runner:$spoonVersion",
+  "spoonRunner"       : "com.jdfind.spoon:spoon-runner:$spoonVersion",
   "ddmlib"            : "com.android.tools.ddms:ddmlib:26.0.1",
 
   // testImplementation

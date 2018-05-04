@@ -14,7 +14,8 @@ plugins {
 repositories {
   jcenter()
   google()
-  maven { url "https://oss.sonatype.org/content/repositories/snapshots" } // For Spoon snapshot, until 2.0.0 is released
+  // For Spoon snapshot, until 2.0.0 is released
+  maven { url 'https://oss.jfrog.org/artifactory/oss-snapshot-local' }
 }
 
 apply from: "gradle/dependencies.gradle"
