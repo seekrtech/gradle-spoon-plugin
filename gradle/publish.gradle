@@ -28,7 +28,6 @@ def pomConfig = {
     developer {
       id POM_DEVELOPER_ID
       name POM_DEVELOPER_NAME
-      email POM_DEVELOPER_EMAIL
     }
   }
 }
@@ -135,7 +134,7 @@ artifactory {
 artifactoryPublish.dependsOn jar, sourcesJar, javadocJar, groovydocJar, kotlindocJar, testsJar, reportsZip
 artifactoryPublish.dependsOn "generatePomFileForMavenPublication"
 
-// Publishes to JFrog Bintray's JCenter repository
+// Publish to JFrog Bintray's JCenter repository
 bintray {
   user = project.properties["BINTRAY_USERNAME"] ?: System.getenv("BINTRAY_USERNAME")
   key = project.properties["BINTRAY_API_KEY"] ?: System.getenv("BINTRAY_API_KEY")
@@ -146,12 +145,10 @@ bintray {
     repo = "maven"
     name = POM_ARTIFACT_ID
     desc = POM_DESCRIPTION
-    websiteUrl = POM_URL
     issueTrackerUrl = POM_ISSUE_URL
     vcsUrl = POM_URL
     labels = ["gradle", "plugin", "spoon"]
     githubRepo = BINTRAY_GITHUB_REPO
-    githubReleaseNotesFile = "README.md"
 
     version {
       name = VERSION_NAME
@@ -171,7 +168,7 @@ bintray {
 bintrayUpload.dependsOn jar, sourcesJar, javadocJar, groovydocJar, kotlindocJar, testsJar, reportsZip
 bintrayUpload.dependsOn "generatePomFileForMavenPublication"
 
-// Publishes to JFrog Bintray's JCenter repository
+// Publishe Gradle Plugin
 pluginBundle {
   website = POM_URL
   vcsUrl = POM_URL

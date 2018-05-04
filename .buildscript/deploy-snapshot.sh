@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-SLUG="jaredsburrows/gradle-spoon-plugin"
+SLUG="JDFind/gradle-spoon-plugin"
 BRANCH="master"
 
 set -e

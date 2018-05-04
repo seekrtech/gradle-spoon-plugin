@@ -11,7 +11,7 @@ buildscript {
   dependencies {
     classpath deps.gradle
     classpath deps.kotlinGradlePlugin
-    classpath "com.jaredsburrows:gradle-spoon-plugin:latest.integration"
+    classpath "com.jdfind:gradle-spoon-plugin:latest.integration"
   }
 }
 
@@ -23,7 +23,7 @@ repositories {
 
 apply plugin: "com.android.application"
 apply plugin: "kotlin-android"
-apply plugin: "com.jaredsburrows.spoon"
+apply plugin: "com.jdfind.spoon"
 
 android {
   compileSdkVersion rootProject.ext.minSdkVersion
