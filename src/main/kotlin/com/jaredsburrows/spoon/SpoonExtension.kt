@@ -4,8 +4,8 @@ package com.jaredsburrows.spoon
  * Variables based on the following documentation:
  * - https://developer.android.com/reference/android/support/test/runner/AndroidJUnitRunner.html
  * - https://developer.android.com/training/testing/espresso/setup.html
- * - https://github.com/square/spoon/blob/master/spoon-runner/src/main/java/com/squareup/spoon/SpoonRunner.java
- * - https://github.com/square/spoon#execution
+ * - https://github.com/jdfind/spoon/blob/master/spoon-runner/src/main/java/com/squareup/spoon/SpoonRunner.java
+ * - https://github.com/jdfind/spoon#execution
  */
 open class SpoonExtension { // Extensions cannot be final
   companion object {
@@ -84,6 +84,9 @@ open class SpoonExtension { // Extensions cannot be final
 
   /** Run tests in separate instrumentation calls. */
   var singleInstrumentationCall: Boolean = false
+
+  /** Run each test class in a different instrumentation instance. */
+  var classLevelInstrumentation: Boolean = false
 
   ////////////////////////////////////////////////////
   // Passed in via -e, extra arguments
