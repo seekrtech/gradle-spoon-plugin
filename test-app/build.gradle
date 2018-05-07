@@ -71,13 +71,6 @@ spoon {
   grantAllPermissions = true
 }
 
-configurations.all {
-  resolutionStrategy {
-    force deps.orgJacocoAgent
-    force deps.orgJacocoAnt
-  }
-}
-
 dependencies {
   implementation deps.kotlinStdlib
 

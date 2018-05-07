@@ -8,7 +8,6 @@ ext {
   compileSdkVersion = 27
   buildToolsVersion = "27.0.3"
   spoonVersion = "2.0.0-SNAPSHOT"
-  jacocoVersion = "0.8.1"
 }
 
 // Dependencies
@@ -32,10 +31,4 @@ ext.deps = [
   "spoonClient"       : "com.jdfind.spoon:spoon-client:$spoonVersion",
   "runner"            : "com.android.support.test:runner:0.5",
   "rules"             : "com.android.support.test:rules:0.5",
-
-  // jacocoAgent/androidJacocoAgent
-  "orgJacocoAgent"    : "org.jacoco:org.jacoco.agent:$jacocoVersion",
-
-  // jacocoAnt/androidJacocoAnt
-  "orgJacocoAnt"      : "org.jacoco:org.jacoco.ant:$jacocoVersion"
 ]
