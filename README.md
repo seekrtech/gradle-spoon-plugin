@@ -20,7 +20,7 @@ buildscript {
   }
 
   dependencies {
-    classpath "com.jdfind:gradle-spoon-plugin:1.4.0"
+    classpath "com.jdfind:gradle-spoon-plugin:1.4.1"
   }
 }
 
