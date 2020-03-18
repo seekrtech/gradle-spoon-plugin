@@ -7,7 +7,7 @@ ext {
   targetSdkVersion = 27
   compileSdkVersion = 27
   buildToolsVersion = "27.0.3"
-  spoonVersion = "2.0.0-SNAPSHOT"
+  spoonVersion = "dc8e825cb0"
 }
 
 // Dependencies
@@ -19,7 +19,7 @@ ext.deps = [
   // implementation
   "kotlinStdlib"      : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion",
   "kotlinReflect"     : "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion",
-  "spoonRunner"       : "com.jdfind.spoon:spoon-runner:$spoonVersion",
+  "spoonRunner"       : "com.github.seekrtech.spoon:spoon-runner:$spoonVersion",
   "ddmlib"            : "com.android.tools.ddms:ddmlib:26.0.1",
 
   // testImplementation

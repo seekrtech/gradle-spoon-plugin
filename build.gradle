@@ -15,6 +15,7 @@ repositories {
   jcenter()
   google()
   // For Spoon snapshot, until 2.0.0 is released
+  maven { url 'https://jitpack.io' }
   maven { url 'https://oss.jfrog.org/artifactory/oss-snapshot-local' }
 }
 
