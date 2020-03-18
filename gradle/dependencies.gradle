@@ -7,7 +7,7 @@ ext {
   targetSdkVersion = 27
   compileSdkVersion = 27
   buildToolsVersion = "27.0.3"
-  spoonVersion = "dc8e825cb0"
+  spoonVersion = "e2b16540c1"
 }
 
 // Dependencies
